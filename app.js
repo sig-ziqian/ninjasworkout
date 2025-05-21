@@ -1,6 +1,13 @@
 var session = require('express-session');
 
 
+const crypto = require('crypto');
+
+// Example: Creating a hash using OpenSSL
+const hash = crypto.createHash('sha256');
+hash.update('Some data to hash');
+console.log(hash.digest('hex'));
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -162,3 +169,4 @@ app.use(userrouter);
 
 
 app.listen(3000,() => console.log("server is listening on port 3000"));
+
